@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useStrikes} from "../hooks/useStrikes";
 import {useBalls} from "../hooks/useBalls";
 import {useFouls} from "../hooks/useFouls";
+import Display from "./display";
 
 const Dashboard = () => {
     const [strikes, setStrikes] = useStrikes('strikes');
@@ -47,7 +48,7 @@ const Dashboard = () => {
     const ballButton = e => {
         e.preventDefault();
         console.log(balls);
-        if (balls <= 3) {
+        if (balls < 3) {
             setBalls(balls + 1)
         } else {
             setBalls(0);
@@ -69,6 +70,9 @@ const Dashboard = () => {
 
     return (
         <div className={'dash'}>
+
+            <Display balls={balls} strikes={strikes}/>
+
             <button onClick={hitButton}>Hit!</button>
             <button onClick={strikeButton}>Strike!</button>
             <button onClick={ballButton}>Ball!</button>

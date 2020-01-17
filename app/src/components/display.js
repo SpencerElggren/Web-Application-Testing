@@ -2,17 +2,15 @@ import React, {useEffect} from "react";
 import {useStrikes} from "../hooks/useStrikes";
 import {useBalls} from "../hooks/useBalls";
 
-const Display = () => {
-    const [strikes, setStrikes] = useStrikes('strikes');
-    const [balls, setBalls] = useBalls('balls');
+const Display = (props) => {
 
     return (
         <div className={'display'}>
             <div className={'box'}>
-                Strikes= {strikes}
+                Strikes= {props.strikes}
             </div>
             <div className={'box'}>
-                Balls= {balls}
+                Balls= {props.balls}
             </div>
         </div>
     )
